@@ -36,6 +36,7 @@ In the Cygwin installer, select and install the "Devel" packages at the top leve
 (These are instructions to build NDN-CPP. To do development of NDN-CPP code and update the build system, see Development.)
 
 To build in a terminal, change directory to the NDN-CPP root.  Enter:
+
     ./configure
     make
     sudo make install
@@ -43,10 +44,12 @@ To build in a terminal, change directory to the NDN-CPP root.  Enter:
 NDN-CPP uses NDN-TLV as the default wire format:
 http://named-data.net/doc/ndn-tlv/tlv.html
 To revert to Binary XML (ndnb) as the default wire format, instead of ./configure, use:
-  ./configure --enable-binary-xml=yes
+
+    ./configure --enable-binary-xml=yes
 
 To make documentation, enter:
-  make doxygen-doc
+  
+    make doxygen-doc
 
 Files
 -----
@@ -85,16 +88,20 @@ First follow the Prerequisites above for your platforms.
 # Mac OS X 10.7.3, Mac OS X 10.8.4, Mac OS X 10.9
 Install MacPorts from http://www.macports.org/install.php
 In a terminal, enter:
-  sudo port install automake autoconf libtool doxygen
+ 
+    sudo port install automake autoconf libtool doxygen
 
 # Ubuntu 12.04 (64 bit and 32 bit), Ubuntu 13.04 (64 bit)
 In a terminal, enter:
-  sudo apt-get install automake libtool doxygen
+
+    sudo apt-get install automake libtool doxygen
 
 Development
 -----------
 Follow Development Prerequisites above for your platform.
 Now you can add source code files and update Makefile.am.  
 After updating, change directory to the NDN-CPP root and enter the following to build the Makefile:
-  ./autogen.sh
+
+    ./autogen.sh
+
 To build again, follow the instructions above (./configure, make, etc.)
