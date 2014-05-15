@@ -1,8 +1,8 @@
 NDN-CPP:  A Named Data Networking client library for C++ and C
--------------------------------------------------------------
+==============================================================
 
-Prerequisites
--------------
+# Prerequisites
+
 (These are prerequisites to build NDN-CPP.  To do development of NDN-CPP code and update the build system, 
  see Development Prerequisites.)
 
@@ -12,25 +12,25 @@ Optional: OSX Security framework (for key storage)
 
 Following are the detailed steps for each platform to install the prerequisites.
 
-* Mac OS X 10.7.3, Mac OS X 10.8.4
+## Mac OS X 10.7.3, Mac OS X 10.8.4
 Install Xcode.
 In Xcode Preferences > Downloads, install "Command Line Tools".
 
-* Mac OS X 10.9
+## Mac OS X 10.9
 Install Xcode.  (Xcode on OS X 10.9 seems to already have the Command Line Tools.)
 
-* Ubuntu 12.04 (64 bit and 32 bit), Ubuntu 13.04 (64 bit)
+## Ubuntu 12.04 (64 bit and 32 bit), Ubuntu 13.04 (64 bit)
 In a terminal, enter:
 sudo apt-get install build-essential
 sudo apt-get install libssl-dev
 
-* Windows Cygwin
+## Windows Cygwin
 Cygwin is tested on Windows 7 64-bit. 
 In the Cygwin installer, select and install the "Devel" packages at the top level of the installer.
 (The "Devel" packages include libcrypto and libsqlite3.)
 
-Build
------
+# Build
+
 (These are instructions to build NDN-CPP. To do development of NDN-CPP code and update the build system, see Development.)
 
 To build in a terminal, change directory to the NDN-CPP root.  Enter:
@@ -47,8 +47,7 @@ To revert to Binary XML (ndnb) as the default wire format, instead of ./configur
 To make documentation, enter:
 make doxygen-doc
 
-Files
------
+# Files
 
 This makes the following libraries:
 
