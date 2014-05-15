@@ -36,9 +36,9 @@ In the Cygwin installer, select and install the "Devel" packages at the top leve
 (These are instructions to build NDN-CPP. To do development of NDN-CPP code and update the build system, see Development.)
 
 To build in a terminal, change directory to the NDN-CPP root.  Enter:
-  ./configure
-  make
-  sudo make install
+    ./configure
+    make
+    sudo make install
 
 NDN-CPP uses NDN-TLV as the default wire format:
 http://named-data.net/doc/ndn-tlv/tlv.html
