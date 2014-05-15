@@ -18,6 +18,7 @@ In a terminal, enter:
     sudo pip install pycrypto
 
 Optional: To install trollius (Python 2.7), in a terminal enter:
+
     sudo pip install trollius
 
 ## Mac OS X 10.9
