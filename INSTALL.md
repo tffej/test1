@@ -52,6 +52,7 @@ Optional: To install trollius (Python 2.7), in a terminal enter:
 (PyCrypto is already installed.)
 
 Optional: To install trollius (Python 2.7), in a terminal enter:
+
     sudo apt-get install python-pip
     sudo pip install trollius
 
