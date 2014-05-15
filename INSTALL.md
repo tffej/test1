@@ -16,17 +16,16 @@ Following are the detailed steps for each platform to install the prerequisites.
 Install Xcode.
 In Xcode Preferences > Downloads, install "Command Line Tools".
 
-Mac OS X 10.9
--------------
+## Mac OS X 10.9
 Install Xcode.  (Xcode on OS X 10.9 seems to already have the Command Line Tools.)
 
-# Ubuntu 12.04 (64 bit and 32 bit), Ubuntu 13.04 (64 bit)
+## Ubuntu 12.04 (64 bit and 32 bit), Ubuntu 13.04 (64 bit)
 In a terminal, enter:
 
     sudo apt-get install build-essential
     sudo apt-get install libssl-dev
 
-# Windows Cygwin
+## Windows Cygwin
 Cygwin is tested on Windows 7 64-bit. 
 In the Cygwin installer, select and install the "Devel" packages at the top level of the installer.
 (The "Devel" packages include libcrypto and libsqlite3.)
@@ -53,7 +52,6 @@ To make documentation, enter:
 
 Files
 -----
-
 This makes the following libraries:
 
 * .libs/libndn-c.a: The core C code for encoding and communication.
@@ -73,7 +71,6 @@ Running make doxygen-doc puts code documentation in doc/html.
 
 Supported platforms
 -------------------
-
 NDN-CPP is tested on the following platforms:
 * Ubuntu 12.04 (64 bit and 32 bit) (gcc 4.6.3)
 * Ubuntu 13.04 (64 bit) (gcc 4.7.3)
