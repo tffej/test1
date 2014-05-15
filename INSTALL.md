@@ -1,117 +1,97 @@
-PyNDN: A Named Data Networking client library with TLV wire format support in native Python
-===========================================================================================
+NDN-CPP:  A Named Data Networking client library for C++ and C
+==============================================================
 
 Prerequisites
 =============
-* Required: Python 2.7 or later
-* Required: PyCrypto
-* Optional: trollius (for asyncio in Python 2.7)
+(These are prerequisites to build NDN-CPP.  To do development of NDN-CPP code and update the build system, 
+ see Development Prerequisites.)
+
+* Required: libcrypto
+* Optional: libsqlite3 (for key storage)
+* Optional: OSX Security framework (for key storage)
 
 Following are the detailed steps for each platform to install the prerequisites.
 
-## Mac OS X 10.7.3, Mac OS X 10.8.5
+## Mac OS X 10.7.3, Mac OS X 10.8.4
 Install Xcode.  
-In Xcode Preferences > Downloads, install "Command Line Tools".  
-In a terminal, enter:  
-
-    sudo easy_install pip
-    sudo pip install pycrypto
-
-Optional: To install trollius (Python 2.7), in a terminal enter:
-
-    sudo pip install trollius
+In Xcode Preferences > Downloads, install "Command Line Tools".
 
 ## Mac OS X 10.9
-Install Xcode.  (Xcode on OS X 10.9 seems to already have the Command Line Tools.)  
+Install Xcode.  (Xcode on OS X 10.9 seems to already have the Command Line Tools.)
+
+## Ubuntu 12.04 (64 bit and 32 bit), Ubuntu 13.04 (64 bit)
 In a terminal, enter:
 
-    sudo easy_install pip
-    sudo pip install pycrypto
-
-Optional: To install trollius (Python 2.7), in a terminal enter:
-
-    sudo pip install trollius
-
-## Ubuntu 12.04 (64 bit and 32 bit)
-Need to build/install the latest PyCrypto. In a terminal, enter:
-
-    cd ~
-    sudo apt-get install git
-    git clone https://github.com/dlitz/pycrypto.git
-    cd pycrypto
-    sudo apt-get install python-dev
-    python setup.py build
-    sudo python setup.py install
-
-Optional: To install trollius (Python 2.7), in a terminal enter:
-
-    sudo apt-get install python-pip
-    sudo pip install trollius
-
-## Ubuntu 13.10 (64 bit)
-(PyCrypto is already installed.)
-
-Optional: To install trollius (Python 2.7), in a terminal enter:
-
-    sudo apt-get install python-pip
-    sudo pip install trollius
+    sudo apt-get install build-essential
+    sudo apt-get install libssl-dev
 
 ## Windows Cygwin
 Cygwin is tested on Windows 7 64-bit. 
 
-In the Cygwin installer, select and install the "Devel" packages at the top level of the installer.  
-In a Cygwin terminal, enter:
-
-    easy_install pip
-    pip install pycrypto
-
-Optional: To install trollius (Python 2.7), in a terminal enter:
-
-    pip install trollius
-
-## Windows 7 (no Cygwin)
-In the following, change `c:\Python27\` or `c:\Python34\` to your correct Python directory
-(or omit if you have python.exe in your PATH).
-
-### Python 2.7 for Windows
-
-To install pip, download get-pip.py from https://pip.pypa.io/en/latest/installing.html .  
-In a command prompt, enter:
-
-    c:\Python27\python.exe get-pip.py
-
-This installs pip.exe in the Scripts subdirectory of the Python directory.
-
-TODO: pip install pycrypto
-
-Optional: To run trollius in Python 2.7, it apparently needs some DLLs from
-Python 3. So, to run trollius in Python 2.7, install Python 3.  
-To install trollius (Python 2.7), in a terminal enter:
-
-    c:\Python27\Scripts\pip.exe install trollius
+In the Cygwin installer, select and install the "Devel" packages at the top level of the installer.
+(The "Devel" packages include libcrypto and libsqlite3.)
 
 Build
 =====
-You need PyNDN on the Python path.  To temporarily set it, do the following.
-If `<PyNDN root>` is the path to the root of the PyNDN distribution, in a terminal enter:
+(These are instructions to build NDN-CPP. To do development of NDN-CPP code and update the build system, see Development.)
 
-    export PYTHONPATH=$PYTHONPATH:<PyNDN root>/python
+To build in a terminal, change directory to the NDN-CPP root.  Enter:
 
-For examples, see the test files in `<PyNDN root>/tests`.  For example in a terminal enter:
+    ./configure
+    make
+    sudo make install
 
-    cd <PyNDN root>/tests
-    python test_encode_decode_data.py
-    python test_get_async.py
+NDN-CPP uses NDN-TLV as the default wire format:
+http://named-data.net/doc/ndn-tlv/tlv.html .
+To revert to Binary XML (ndnb) as the default wire format, instead of ./configure, use:
+
+    ./configure --enable-binary-xml=yes
+
+To make documentation, enter:
+  
+    make doxygen-doc
 
 Files
 =====
-This has the following test files:
+This makes the following libraries:
 
-* tests/test_get_async.py: Connect to one of the NDN testbed hubs, express an interest and display the received data.
-* tests/test_get_async_threadsafe.py: The same as test_get_async.py, but use asyncio and the ThreadsafeFace.
-* tests/test_publish_async_ndnx.py: Connect to the local NDNx hub, accept interests with prefix /testecho and echo back a data packet. See test_echo_consumer.py.
-* tests/test_publish_async_nfd.py: Connect to the local NFD hub, accept interests with prefix /testecho and echo back a data packet. See test_echo_consumer.py.
-* tests/test_echo_consumer.py: Prompt for a word, send the interest /testecho/word to the local hub which is echoed by test_publish_async_nfd.py (or test_publish_async_ndnx.py).
-* tests/test_encode_decode_interest.py: Encode and decode an interest, testing interest selectors and the name URI.
-* tests/test_encode_decode_data.py: Encode and decode a data packet, including signing the data packet.
-* tests/test_encode_decode_forwarding_entry.py: Encode and decode a forwarding entry packet, including signing the data packet.
+* .libs/libndn-c.a: The core C code for encoding and communication.
+* .libs/libndn-cpp.a: The C++ library API.  (If linking to libndn-cpp, don't link to libndn-c since it is included.)
+
+This makes the following test files:
+
+* bin/test-get-async: Connect to one of the NDN testbed hubs, express an interest and display the received data.
+* bin/test-publish-async-ndnx: Connect to the local NDNx hub, accept interests with prefix /testecho and echo back a data packet. See test-echo-consumer.
+* bin/test-publish-async-nfd: Connect to the local NFD hub, accept interests with prefix /testecho and echo back a data packet. See test-echo-consumer.
+* bin/test-echo-consumer: Prompt for a word, send the interest /testecho/word to the local hub which is echoed by test-publish-async-nfd (or test-publish-async-ndnx).
+* bin/test-encode-decode-interest: Encode and decode an interest, testing interest selectors and the name URI.
+* bin/test-encode-decode-data: Encode and decode a data packet, including signing the data packet.
+* bin/test-encode-decode-forwarding-entry: Encode and decode a data packet, including signing the data packet.
+
+Running make doxygen-doc puts code documentation in doc/html.
+
+Development Prerequisites
+=========================
+These steps are only needed to do development of NDN-CPP code and update the build system.
+First follow the Prerequisites above for your platforms.
+
+## Mac OS X 10.7.3, Mac OS X 10.8.4, Mac OS X 10.9
+Install MacPorts from http://www.macports.org/install.php .  
+In a terminal, enter:
+ 
+    sudo port install automake autoconf libtool doxygen
+
+## Ubuntu 12.04 (64 bit and 32 bit), Ubuntu 13.04 (64 bit)
+In a terminal, enter:
+
+    sudo apt-get install automake libtool doxygen
+
+Development
+===========
+Follow Development Prerequisites above for your platform.
+Now you can add source code files and update Makefile.am.  
+After updating, change directory to the NDN-CPP root and enter the following to build the Makefile:
+
+    ./autogen.sh
+
+To build again, follow the instructions above (./configure, make, etc.)
