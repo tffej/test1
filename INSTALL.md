@@ -31,7 +31,7 @@ In the Cygwin installer, select and install the "Devel" packages at the top leve
 (The "Devel" packages include libcrypto and libsqlite3.)
 
 Build
------
+=====
 (These are instructions to build NDN-CPP. To do development of NDN-CPP code and update the build system, see Development.)
 
 To build in a terminal, change directory to the NDN-CPP root.  Enter:
@@ -51,7 +51,7 @@ To make documentation, enter:
     make doxygen-doc
 
 Files
------
+=====
 This makes the following libraries:
 
 * .libs/libndn-c.a: The core C code for encoding and communication.
@@ -70,7 +70,7 @@ This makes the following test files:
 Running make doxygen-doc puts code documentation in doc/html.
 
 Supported platforms
--------------------
+===================
 NDN-CPP is tested on the following platforms:
 * Ubuntu 12.04 (64 bit and 32 bit) (gcc 4.6.3)
 * Ubuntu 13.04 (64 bit) (gcc 4.7.3)
@@ -78,23 +78,23 @@ NDN-CPP is tested on the following platforms:
 * Mac OS X 10.8.4 (gcc 4.2)
 
 Development Prerequisites
--------------------------
+=========================
 These steps are only needed to do development of NDN-CPP code and update the build system.
 First follow the Prerequisites above for your platforms.
 
-# Mac OS X 10.7.3, Mac OS X 10.8.4, Mac OS X 10.9
-Install MacPorts from http://www.macports.org/install.php
+## Mac OS X 10.7.3, Mac OS X 10.8.4, Mac OS X 10.9
+Install MacPorts from http://www.macports.org/install.php .
 In a terminal, enter:
  
     sudo port install automake autoconf libtool doxygen
 
-# Ubuntu 12.04 (64 bit and 32 bit), Ubuntu 13.04 (64 bit)
+## Ubuntu 12.04 (64 bit and 32 bit), Ubuntu 13.04 (64 bit)
 In a terminal, enter:
 
     sudo apt-get install automake libtool doxygen
 
 Development
------------
+===========
 Follow Development Prerequisites above for your platform.
 Now you can add source code files and update Makefile.am.  
 After updating, change directory to the NDN-CPP root and enter the following to build the Makefile:
