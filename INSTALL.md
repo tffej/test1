@@ -1,19 +1,18 @@
 NDN-CPP:  A Named Data Networking client library for C++ and C
 ==============================================================
 
-Prerequisites
--------------
+# Prerequisites
 
 (These are prerequisites to build NDN-CPP.  To do development of NDN-CPP code and update the build system, 
  see Development Prerequisites.)
 
-Required: libcrypto
-Optional: libsqlite3 (for key storage)
-Optional: OSX Security framework (for key storage)
+* Required: libcrypto
+* Optional: libsqlite3 (for key storage)
+* Optional: OSX Security framework (for key storage)
 
 Following are the detailed steps for each platform to install the prerequisites.
 
-# Mac OS X 10.7.3, Mac OS X 10.8.4
+## Mac OS X 10.7.3, Mac OS X 10.8.4
 Install Xcode.
 In Xcode Preferences > Downloads, install "Command Line Tools".
 
