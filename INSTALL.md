@@ -22,9 +22,8 @@ Install Xcode.  (Xcode on OS X 10.9 seems to already have the Command Line Tools
 
 # Ubuntu 12.04 (64 bit and 32 bit), Ubuntu 13.04 (64 bit)
 In a terminal, enter:
-
-  sudo apt-get install build-essential
-  sudo apt-get install libssl-dev
+    sudo apt-get install build-essential
+    sudo apt-get install libssl-dev
 
 # Windows Cygwin
 Cygwin is tested on Windows 7 64-bit. 
