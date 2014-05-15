@@ -16,7 +16,8 @@ Following are the detailed steps for each platform to install the prerequisites.
 Install Xcode.
 In Xcode Preferences > Downloads, install "Command Line Tools".
 
-# Mac OS X 10.9
+Mac OS X 10.9
+-------------
 Install Xcode.  (Xcode on OS X 10.9 seems to already have the Command Line Tools.)
 
 # Ubuntu 12.04 (64 bit and 32 bit), Ubuntu 13.04 (64 bit)
