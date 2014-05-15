@@ -1,8 +1,8 @@
 NDN-CPP:  A Named Data Networking client library for C++ and C
 ==============================================================
 
-# Prerequisites
-
+Prerequisites
+-------------
 (These are prerequisites to build NDN-CPP.  To do development of NDN-CPP code and update the build system, 
  see Development Prerequisites.)
 
@@ -31,7 +31,7 @@ Cygwin is tested on Windows 7 64-bit.
 In the Cygwin installer, select and install the "Devel" packages at the top level of the installer.
 (The "Devel" packages include libcrypto and libsqlite3.)
 
-#Build
+Build
 -----
 (These are instructions to build NDN-CPP. To do development of NDN-CPP code and update the build system, see Development.)
 
