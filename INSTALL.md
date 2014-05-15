@@ -84,7 +84,7 @@ This installs pip.exe in the Scripts subdirectory of the Python directory.
 TODO: pip install pycrypto
 
 Optional: To run trollius in Python 2.7, it apparently needs some DLLs from
-Python 3. So, to run trollius in Python 2.7, install Python 3.  
+Python 3. So, to run trollius in Python 2.7, install Python 3. 
 To install trollius (Python 2.7), in a terminal enter:
 
     c:\Python27\Scripts\pip.exe install trollius
